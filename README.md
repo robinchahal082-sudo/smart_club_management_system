@@ -99,6 +99,6 @@ git clone <repository-link>
 
 5. Open browser and run
 
-http://localhost/project-folder-name
+http://localhost/project-club_management
 
 This project is developed for educational purposes.
