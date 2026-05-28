@@ -1,0 +1,227 @@
+Club Management System
+Project Continuation & Handover Document (FINAL – STABLE VERSION)
+
+Project Overview
+A Role-Based Club Management System developed using PHP + MySQL.
+User Roles
+•	Admin
+•	Leader
+•	Student
+•	Faculty
+
+Core Modules Implemented
+Authentication
+•	Login (role-based redirect)
+•	Signup (Student & Faculty)
+•	Forgot Password (token-based, expiry, one-time use)
+Files:
+auth/login.php
+auth/signup.php
+auth/forgot_password.php
+auth/reset_password.php
+
+Admin Module (FINAL)
+Features
+•	Create / Edit / Delete clubs
+•	Assign / change Leader & Faculty
+•	Approve / Reject event requests
+•	View:
+o	Pending Events
+o	Approved Events
+o	Upcoming Events
+o	Completed Events
+•	Reports & Analytics
+•	Dashboard cards (clickable)
+Dashboard Cards
+•	Total Clubs
+•	Total Students
+•	Total Events (Approved)
+•	Pending Events
+•	Upcoming Events
+•	Completed Events
+Files:
+admin/dashboard.php
+admin/events.php
+admin/events_list.php
+admin/event_view.php
+admin/reports.php
+admin/clubs_manage.php
+
+Leader Module (FINAL – SIMPLE & STABLE)
+Features
+•	View club members
+•	Approve / Reject join requests
+•	Create event request (pending → admin approval)
+•	View own club events
+•	View event-wise enrollments
+•	Upload results
+•	View students who left club
+Files:
+leader/events_manage.php
+leader/event_enrollments.php
+leader/results_manage.php
+leader/join_requests.php
+leader/left_students.php
+
+Student Module (FINAL)
+Features
+•	Join clubs
+•	Cancel join request
+•	Leave club (with reason)
+•	View approved events
+•	Enroll in events (only before event date)
+•	Cannot enroll in completed events
+•	View:
+o	My Enrollments
+o	Results
+o	Performance (cards + graph)
+Enrollment Rules
+•	Approved event only
+•	Not already enrolled
+•	Event date ≥ today
+Files:
+student/dashboard.php
+student/approved_events.php
+student/event_details.php
+student/enroll.php
+student/unenroll.php
+student/my_enrollments.php
+student/results.php
+student/performance.php
+
+Faculty Module
+Features
+•	View club details
+•	View members
+•	Monitor events
+•	View results
+•	View student performance
+•	Add remarks
+•	View left students
+Files:
+faculty/dashboard.php
+faculty/events.php
+faculty/results.php
+faculty/student_performance.php
+faculty/remarks.php
+faculty/left_students.php
+
+Database Tables (FINAL & STABLE)
+users
+user_id (PK)
+name
+email
+password
+role
+status
+clubs
+club_id (PK)
+club_name
+description
+leader_id
+faculty_id
+club_members
+id (PK)
+club_id
+student_id
+joined_at
+join_requests
+request_id (PK)
+club_id
+student_id
+status
+request_date
+club_leave_requests
+id (PK)
+club_id
+student_id
+reason
+left_at
+events
+event_id (PK)
+club_id
+title
+description
+event_date
+approval_status (pending / approved / rejected)
+created_by
+event_participants
+id (PK)
+event_id
+student_id
+enrolled_at
+event_results
+id (PK)
+event_id
+student_id
+position
+score
+faculty_remarks
+id (PK)
+student_id
+faculty_id
+remark
+created_at
+
+Rules (FINAL)
+•	Student cannot:
+o	Join same club twice
+o	Enroll twice in same event
+o	Enroll after event date
+•	Leader:
+o	Can manage only own club
+•	Admin:
+o	Full control
+•	Event Lifecycle:
+o	Pending → Approved
+o	Past approved event → Completed (auto by date)
+•	Cancel / Postpone lifecycle intentionally excluded
+
+Reports & Analytics (Current State)
+Implemented
+•	Club-wise comparison
+•	Overall comparison
+•	Graphs:
+o	Bar chart
+o	Line chart
+o	Pie chart
+Metrics
+•	Members per club
+•	Events per club
+•	Event participation per club
+•	Student performance graphs
+File:
+admin/reports.php
+
+Day-wise Plan Status
+Day 1–2: Auth + Base Setup
+✅ COMPLETE
+Day 3: Club Management (Admin)
+✅ COMPLETE
+Day 4: Join Request System
+✅ COMPLETE
+Day 5: Leave Club System
+✅ COMPLETE
+Day 6: Event System (Leader → Admin)
+✅ COMPLETE
+Day 7: Student Event View
+✅ COMPLETE
+Day 8: Event Enrollment
+✅ COMPLETE
+Day 9: Results & Performance
+✅ COMPLETE
+Day 10: Reports & Analytics
+Mostly Done
+•	Export pending (optional)
+Day 11: Security & UI Polish
+Partial
+Day 12: Final Testing & Submission
+Not Started
+Next Work (Optional – Safe Ideas)
+•	PDF / Excel report export
+•	Deployment (hosting + DB)
+•	Viva questions & answers
+•	UI polish
+•	Notifications (optional)
+
+
